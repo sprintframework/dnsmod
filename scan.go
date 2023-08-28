@@ -24,6 +24,7 @@ func Scanner(scan... interface{}) sprint.CoreScanner {
 func (t *dnsScanner) CoreBeans() []interface{} {
 
 	beans := []interface{}{
+		WhoisService(),
 		netlify.NetlifyProvider(),
 		&struct {
 			DNSProviders []dns.DNSProvider `inject`
