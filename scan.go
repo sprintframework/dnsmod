@@ -6,22 +6,22 @@
 package dnsmod
 
 import (
-	"github.com/sprintframework/dnsmod/netlify"
+	"github.com/codeallergy/glue"
 	"github.com/sprintframework/dns"
-	"github.com/sprintframework/sprint"
+	"github.com/sprintframework/dnsmod/netlify"
 )
 
 type dnsScanner struct {
 	Scan     []interface{}
 }
 
-func Scanner(scan... interface{}) sprint.CoreScanner {
+func Scanner(scan... interface{}) glue.Scanner {
 	return &dnsScanner {
 		Scan: scan,
 	}
 }
 
-func (t *dnsScanner) CoreBeans() []interface{} {
+func (t *dnsScanner) Beans() []interface{} {
 
 	beans := []interface{}{
 		WhoisService(),
