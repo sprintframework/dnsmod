@@ -6,7 +6,7 @@ require (
 	github.com/codeallergy/glue v1.1.3
 	github.com/likexian/whois v1.14.2
 	github.com/pkg/errors v0.9.1
-	github.com/sprintframework/dns v1.0.1
+	github.com/sprintframework/dns v1.0.2
 	github.com/stretchr/testify v1.8.2
 	go.uber.org/zap v1.24.0
 )
