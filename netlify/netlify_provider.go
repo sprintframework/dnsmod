@@ -9,7 +9,6 @@ import (
 	"github.com/pkg/errors"
 	"github.com/codeallergy/glue"
 	"github.com/sprintframework/dns"
-	"os"
 	"strings"
 )
 
@@ -34,16 +33,20 @@ func (t *implNetlifyProvider) Detect(whois *dns.Whois) bool {
 	return false
 }
 
-func (t *implNetlifyProvider) NewClient() (dns.DNSProviderClient, error) {
+func (t *implNetlifyProvider) NewClient(token string) (dns.DNSProviderClient, error) {
 
-	token := t.Properties.GetString("netlify.token", "")
+	/*
+	if token == "" {
+		token = t.Properties.GetString("netlify.token", "")
+	}
 
 	if token == "" {
 		token = os.Getenv("NETLIFY_TOKEN")
 	}
+	 */
 
 	if token == "" {
-		return nil, errors.New("netlify.token is empty in config and empty system env NETLIFY_TOKEN")
+		return nil, errors.New("netlify token is empty")
 	}
 
 	return NewClient(token), nil
